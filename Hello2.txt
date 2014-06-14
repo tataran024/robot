@@ -8,9 +8,7 @@ ${GOOGLE_URL}    https://www.google.co.th
 *** Testcases ***
 search from google
 	Find Robot in google
-	See the word Robot
-
-	
+	Robot in the result
 
 *** Keywords ***
 Find Robot in google
@@ -19,5 +17,5 @@ Find Robot in google
 	Input Text    gbqfq    Robot
 	Click Button    gbqfb
 
-See the word Robot 
+Robot in the result 
 	Wait Until Page Contains    Robot

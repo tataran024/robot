@@ -1,20 +1,26 @@
 *** Settings ***
 Library		Selenium2Library
-Suite Teardown    Close Browser
+Suite Teardown    Close All Browsers
 
 *** Variables ***
-
+${GOOGLE_URL}    https://www.google.co.th
 
 *** Testcases ***
-search from google
-	Open Browser    https://www.google.co.th
-
-	Input Text    gbqfq    Robot
-	Click Button    gbqfb
-
-	Wait Until Page Contains    Robot
-
-	
+search robot from google
+	Find    Robot    
+	result is    Robot
+search robotframework from google
+	Find    robotframework    
+	result is    robotframework
 
 *** Keywords ***
-	
+Find
+	[Arguments]    ${keyword}
+	Open Browser    ${GOOGLE_URL}
+
+	Input Text    gbqfq    ${keyword}
+	Click Button    gbqfb
+
+Result is 
+	[Arguments]    ${expected_result}
+	Wait Until Page Contains    ${expected_result}
