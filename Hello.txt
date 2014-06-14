@@ -1,26 +1,18 @@
 *** Settings ***
-Library		Selenium2Library
 Suite Teardown    Close All Browsers
-
-*** Variables ***
-${GOOGLE_URL}    https://www.google.co.th
+Resource    		keyword_library.txt
 
 *** Testcases ***
-search robot from google
-	Find    Robot    
-	result is    Robot
-search robotframework from google
-	Find    robotframework    
-	result is    robotframework
+Rule search data from google
+	[Template]    set of search google
+	#------------------ + ------------------#
+	#         Keywords  |  Expected         #
+	#------------------ + ------------------#
+		robot    			robot
+		robotframework    	robotframework
 
 *** Keywords ***
-Find
-	[Arguments]    ${keyword}
-	Open Browser    ${GOOGLE_URL}
-
-	Input Text    gbqfq    ${keyword}
-	Click Button    gbqfb
-
-Result is 
-	[Arguments]    ${expected_result}
-	Wait Until Page Contains    ${expected_result}
+set of search google
+	[Arguments]    ${keyword}    ${expected_result}
+	Find    	${keyword}
+	result is    ${expected_result}
