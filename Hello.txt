@@ -9,12 +9,12 @@ Suite Teardown    Close Browser
 search from google
 	Open Browser    https://www.google.co.th
 
-
 	Input Text    gbqfq    Robot
 	Click Button    gbqfb
 
 	Wait Until Page Contains    Robot
 
-	Close Browser
+	
 
 *** Keywords ***
+	
